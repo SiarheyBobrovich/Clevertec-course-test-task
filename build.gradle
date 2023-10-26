@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'application'
     id "io.freefair.lombok" version "6.5.1"
 }
 
@@ -21,14 +20,11 @@ ext {
     mockitoVersion = '5.6.0'
 }
 
-application {
-    mainModule = 'ru.clevertec.product'
-    mainClass = 'ru.clevertec.product.HelloApplication'
-}
-
 dependencies {
-    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
 
+    // https://mvnrepository.com/artifact/org.assertj/assertj-core
+    testImplementation 'org.assertj:assertj-core:3.24.2'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
